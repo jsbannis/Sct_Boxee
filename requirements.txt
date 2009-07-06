@@ -1,0 +1,58 @@
+Scene torrents boxee plugin
+
+User Needs:
+
+- Browse shows
+- Browse seasons of a show
+- Be able to download a single episode from the browse
+- Be able to 'subscribe' to a show and download episodes automatically as they become available
+- Search
+- Be able to download from search
+
+Software Requirements (- release 1, * release 2, > release 3):
+
+- Has a main menu allowing user to choose:
+ 		'Browse Shows', 'Search', 'My Subscriptions', 'Downloads'
+- Browse Shows
+	- Should be able to query a database of TV shows
+	- List shows for user and give some sort of graphic
+	- Selecting a show from the list takes the user into a detailed view of show
+	- Be able to subscribe to a show from detailed view
+	- Be able to unsubscribe from detailed view
+	> Detailed view should allow users to select a season and browse episodes
+	> User should be able to select an episode for download from season browser
+	> If an episode is already downloaded, it should be graphically indicated somehow
+	> If an episode is already downloaded, user should be able to play it
+- Search
+	* Queries SceneTorrents website for a user inputted string
+	* Results are displayed to user in result list
+	* User can select a result for download from the result list
+- My subscriptions
+	- Shows a list of shows a user is currently subscribed to
+	- Selecting a show from the list takes the user to the same detail view as the show browser
+	- Shows a user is subscribed to automatically download as they become available
+- Downloads
+	- Shows a list of media currently being downloaded / seeded
+	- Displays progress, speed, ETA, peer info, ratio
+- Browse RSS feed
+	- Displays a list of rss feed items from ScT feed
+	- User can download/add subscription
+
+- Needs to be able to run while the boxee plugin is not active; server/client setup
+
+- Settings
+	* Seed Ratio
+	* RSS check delay
+	* Torrent port
+	* ScT passkey
+	* Prefer xvid/h.264/divx/whatever
+	
+Design:
+
+- Modules
+	- TV DB search (using tvdb_api)
+	- RSS handler (universal feed parser)
+	- SceneTorrent searcher
+	- Download torrents from ScT
+	- Subscription manager
+	- Torrent client (pyTransmission)
